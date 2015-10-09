@@ -1,0 +1,6 @@
+extends header
+
+block content
+  .content
+    .intro-image
+    .
