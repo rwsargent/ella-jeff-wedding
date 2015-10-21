@@ -1,5 +1,12 @@
 extends header
 
 block content
-  .content
-    
+  .home-content
+    .intro-image
+    .submit
+      -if (login=='false')
+        p.failed That's the wrong password. Check your invitation, then try again!
+      form#password-form(method="post", action="/login")
+        span.title Type the secret phrase on the save-the-date to continue!
+        input.password(type="password", name="password")
+        input.submit(type="submit", value="Continue")

@@ -3,18 +3,31 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
+    res.render('home', req.params.login);
+});
 
-  var name = req.query.name;
-  
-  res.render('index', { title: name });
+router.get('/info', function(req, res) { 
+    res.render('info', {});
+});
+
+router.get('/scrabble', function(req, res) {
+  res.render('scrabble', {});
 });
 
 router.get('/kara', function(req, res) {
   res.render('index', { title: 'Kara' });
 });
 
-router.get('/:name/home', function(req, res) {
-    res.render('index', {title: req.params.name});
+router.get('/home', function(req, res) {
+    res.render('home', {});
+}); 
+
+router.post('/login', function(req, res) {
+    if (req.body.password === "eliandmadi") {
+	res.redirect('/info');
+    } else {
+	res.redirect('/?login=false');
+    }
 });
 
 module.exports = router;
