@@ -1,70 +1,53 @@
-.color-1 {
-    background-color : #97E7CA;
-    width : 200px;
-    height : 200px;
+a {
+    display:block;
 }
-.color-2 {
+
+.waiting {
+    display: none;
+}
+
+.waiting.selected {
+    display: inherit;
+}
+.registry {
+    background-color :#97E7CA;
+}
+.hotels {
     background-color : #FE7E39;
-    width : 200px;
-    height : 200px;
 }
-
-body {
-    background-color: #B6B2B3;
+.songs {
+    background-color : #B6B2B3;
 }
-
 .submit {
     margin: 0 auto;
     width : 500px;
+    display: block;
+}
+
+.main-content {
+    display: block;
 }
 
 .content {
     position: relative;
 }
-.color-3 {
-    background-color : #B6B2B3;
-    width : 200px;
-    height : 200px;
+
+input {
+    display:block;
 }
 
-.grid-pad {
-    
+.sidebar {
+    padding: 1em;
+    border: 8px solid darkred;
+    background:#3d594b;
+    float: right;
 }
 
-[class*="color-"] {
-    border : 2px solid black;
-    margin : 5px;
+.title {
+    margin: 0px;
 }
-[class*="col-"] {
-    float: left; 
-    padding-right: 15px;
-    height : 20px;
-    box-sizing : border-box;
-    background-color : blue;
+input.submit, .center {
+    text-align:center;
+    width:50%;
+    margin: 0px auto;
 }
-
-[class*="col-"]:last-of-type {
-  padding-right: 0;
-}
-
-.row:before,
-.row:after {
-    content: " ";
-    display: block;
-}
-
-.row:after { 
-    clear : both;
-}
-
-
-.col-1 { width : 10%;}
-.col-2 { width : 20%;}
-.col-3 { width : 30%;}
-.col-4 { width : 40%;}
-.col-5 { width : 50%;}
-.col-6 { width : 60%;}
-.col-7 { width : 70%;}
-.col-8 { width : 80%;}
-.col-9 { width : 90%;}
-.col-10 { width : 100%} 

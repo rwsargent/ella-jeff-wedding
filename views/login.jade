@@ -1,0 +1,17 @@
+extends header
+
+block content
+  .home-content
+    .intro-image
+    p Welcome to Ella and Jeff's wedding!
+    .submit
+      //p.failed That's the wrong password. Check your invitation, then try again!
+      form#password-form(method="post",action="/authentication")
+        if failed === 'false'
+          p.title That wasn't the secret phrase! Try again!
+        else
+          p.title Type the secret phrase on the save-the-date to continue!
+        .center
+          input.name(type="text", name="name", placeholder="name" required)
+          input.password(type="password", name="password" required)
+          input.submit(type="submit", value="Continue" required)
