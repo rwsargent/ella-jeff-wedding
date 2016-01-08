@@ -1,3 +1,18 @@
+.form-wrapper {
+    height: 100vh;
+    text-align: center;
+}
+.login-form {
+    width: 50%;
+    min-width: 250px;
+    margin: auto;
+}
+
+.login img {
+    width: 10%;
+}
+
+/* Ryan's Stuff */
 a {
     display:block;
 }

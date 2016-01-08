@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
             return;
         }
     }
-    res.render('login', {failed : req.query.login});
+    res.sendfile('views/login-raw.html');
 });
 
 router.post('/authentication', function(req, res, next) {
