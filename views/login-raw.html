@@ -1,13 +1,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-
-
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.min.css">
 </head>
 
 <body>
@@ -26,7 +20,7 @@
 					</div>
 
 					<div class="input-field">
-						<input type="submit" class="submit btn" name="submit" value="Login">
+						<input type="submit" class="submit btn btn-mint" name="submit" value="Login">
 					</div>
 
 				</form><!-- form -->
@@ -34,6 +28,16 @@
 		</div><!-- .form-wrapper -->
 
 	</div><!-- .login -->
+
+	<!-- jQuery with fallback -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>if (!window.jQuery) { document.write('<script src="/javascripts/plugins/jquery.min.js"><\\/script>'); }</script>
+
+	<!-- Materialize with fallback -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+	<script>$.fn.materialbox || document.write('<script src="/javascripts/plugins/materialize.min.js"><\\/script>')</script>
+
+	<script src="/javascripts/main.js"></script>
 
 </body>
 

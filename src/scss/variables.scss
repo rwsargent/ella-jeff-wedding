@@ -1,0 +1,11 @@
+// Defining some basic colorings to override materialize defaults
+
+/*** Colors ***/
+$primary-color: #97E7CA;
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: darken($primary-color, 15%);
+
+$secondary-color: #FE7E39;
+
+$mint: $primary-color;
+$orange: $secondary-color;

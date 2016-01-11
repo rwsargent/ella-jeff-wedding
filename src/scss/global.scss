@@ -1,0 +1,26 @@
+.form-wrapper {
+	height: 100vh;
+	text-align: center;
+}
+.login-form {
+	width: 50%;
+	min-width: 250px;
+	margin: auto;
+}
+
+.login img {
+	width: 10%;
+}
+
+
+// Example of extending materialize classes
+.btn-mint {
+	@extend .btn;
+
+  background-color: $mint;
+
+  &:hover {
+    background-color: lighten($mint, 5%);
+    @extend .z-depth-1-half;
+  }
+}
