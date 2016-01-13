@@ -4,8 +4,10 @@ html
     title Ella & Jeff
     script(src='/javascripts/home.js')
     link(rel='stylesheet', type='text/css', href='/stylesheets/main.min.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
   body
-    block content
+    .content
+      block content
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
     script if (!window.jQuery) { document.write('<script src="/javascripts/plugins/jquery.min.js"><\\/script>'); }
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js')

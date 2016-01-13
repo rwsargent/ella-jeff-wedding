@@ -62,7 +62,7 @@ gulp.task('nodemon', function (cb) {
 
 // Gulp is AMAZING!
 //---
-gulp.task('watch', ['browser-sync'], function () {
+gulp.task('watch', function () {
 	gulp.watch( path.sass, ['sass']);
 	gulp.watch( path.script, ['script']);
 });

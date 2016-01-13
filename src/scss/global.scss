@@ -12,6 +12,31 @@
 	width: 10%;
 }
 
+.failed {
+    text-align: center;
+    color: red;
+}
+
+.content {
+  div {
+    margin: auto;
+  }
+  .card-panel.picture {
+     margin: 45px 0;
+    text-align:center;
+  }
+
+  .logo{ 
+    width: 25%;
+  }
+}
+
+li.button-bar-item { 
+    display : block;
+    float:left;
+    width : 20%;
+    text-align : center;
+}
 
 // Example of extending materialize classes
 .btn-mint {

@@ -1,24 +1,19 @@
 extends header
 
 block content
-  .home-content
-    .side-bar
-      button.registry(value="registry", onclick='onButtonClick(this)') Registry
-      button.hotels(value="hotels", onclick='onButtonClick(this)') Hotels
-      button.songs(value="songs", onclick='onButtonClick(this)') Suggest a Song!
-    .main-content
-      p#message Click a button to change me!
-      .registry.waiting
-        a(href='http://www.google.com') Links
-        a(href='http://www.google.com') To 
-        a(href='http://www.google.com') registry
-      .hotels.waiting
-        a(href='http://www.google.com') Differnt
-        a(href='http://www.google.com') Links
-        a(href='http://www.google.com') To 
-        a(href='http://www.google.com') Hotels
-      .songs.waiting
-        form#song-form(method='post', action'/songs')
-          input.name(type='text', name='songname', placeholder='Song Title' required)
-          input.submit(type='submit', value='Request')
-      
+  .card-panel.picture
+    img.responsive-img.logo(src='/images/logo.png')
+  .card-panel.main.container
+    .button-bar
+      ul.button-bar-list
+        li.button-bar-item#home
+          span Home
+        li.button-bar-item#accomodations
+          span Accomodations
+        li.button-bar-item#registry
+          span Registry
+        li.button-bar-item#rsvp
+          span RSVP
+        li.button-bar-item#tourism
+          span Tourism
+    #main-content
