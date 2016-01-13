@@ -2,9 +2,13 @@ doctype html
 html
   head
     title Ella & Jeff
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(src='/javascripts/home.js')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/main.min.css')
   body
-    .content
     block content
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script if (!window.jQuery) { document.write('<script src="/javascripts/plugins/jquery.min.js"><\\/script>'); }
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js')
+    script $.fn.materialbox || document.write('<script src="/javascripts/plugins/materialize.min.js"><\\/script>')
+    
+    script(src='/javascripts/main.js')
