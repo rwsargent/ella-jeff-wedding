@@ -40,7 +40,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
 		proxy: "http://localhost:5000",
 		files: ["public/**/*.*"],
 		browser: "google chrome",
-		port: 5000
+		port: 7000
 	});
 });
 
@@ -62,7 +62,7 @@ gulp.task('nodemon', function (cb) {
 
 // Gulp is AMAZING!
 //---
-gulp.task('watch', function () {
+gulp.task('watch', ['browser-sync'], function () {
 	gulp.watch( path.sass, ['sass']);
 	gulp.watch( path.script, ['script']);
 });
