@@ -1,6 +1,6 @@
 console.log('compiled js!');
 
-var loadPage = function (event) {
+var tabLoad = function (event) {
     event.preventDefault();
     var id = $(this).attr('id');
     $.ajax({
@@ -11,7 +11,7 @@ var loadPage = function (event) {
 };
 
 $(document).ready(function () {
-    $("li.button-bar-item").click(loadPage);
+    $("li.tab").click(tabLoad);
 });
 // bind click event on li
 

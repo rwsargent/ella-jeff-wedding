@@ -4,16 +4,18 @@ block content
   .card-panel.picture
     img.responsive-img.logo(src='/images/logo.png')
   .card-panel.main.container
-    .button-bar
-      ul.button-bar-list
-        li.button-bar-item#home
-          span Home
-        li.button-bar-item#accomodations
-          span Accomodations
-        li.button-bar-item#registry
-          span Registry
-        li.button-bar-item#rsvp
-          span RSVP
-        li.button-bar-item#tourism
-          span Tourism
+    .button-bar.row
+      .col.s12
+        ul.button-bar-list.tabs
+          li.tab.col.s3#home
+            a(href='#home-tab') Home
+          li.tab.col.s3#accomodations
+            a(href='#accomodations-tab') Accomodations
+          li.tab.col.s3#registry
+            a(href='#registry-tab') Registry
+          li.tab.col.s3#rsvp
+            a(href='#rsvp-tab') RSVP
+          li.tab.col.s3#tourism
+            a(href='#tourism-tab') Tourism
     #main-content
+      include ./home.partial.jade
