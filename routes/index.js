@@ -28,13 +28,41 @@ router.post('/authentication', function(req, res, next) {
     }
 });
 
+router.get('/rsvp/:choice', function(req, res, next){
+    res.send(renderPartial("rsvp/" + req.params.choice));
+});
+
 router.get('/tab/:info', function(req, res, next)  {
     var partial = req.params.info + ".partial.jade";
     var template = fs.readFileSync('./views/'+partial, 'utf8');
     var html = jade.render(template);
     res.send(html);
+});
+
+router.post('/regrets', function(req, res, next) {
+    //write message
+    res.send('<p>Fine.</p>');
+});
+
+router.post('/rsvp', function(req, res, next) {
+    var names = req.body['names[]'];
+    for(var nameIdx in names) {
+	var name = names[nameIdx];
+	console.log(name);
+    }
+    res.cookie('rsvp', 'successful', {expires : new Date(2147483647000)});
+    var html = renderPartial('success-rsvp');
+    res.send(html);
+    
+});
+
+var renderPartial = function(filename, data) {
+    filename = filename + ".jade";
+    var template = fs.readFileSync('./views/'+filename, 'utf8');
+    var html = jade.render(template);
   //  var jadeFn = jade.compile(template, { filename: partial, pretty: true });
 //    var renderedTemplate = jadeFn({data: 1, hello: 'world'});
-});
+    return html
+}
 
 module.exports = router;

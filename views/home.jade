@@ -18,4 +18,13 @@ block content
           li.tab.col.s3#tourism
             a(href='#tourism-tab') Tourism
     #main-content
-      include ./home.partial.jade
+      #home-tab
+        include ./home.partial.jade
+      #accomodations-tab
+        include ./accomodations.partial.jade
+      #registry-tab
+        include ./registry.partial.jade
+      #rsvp-tab
+        include ./rsvp.partial.jade
+      #tourism-tab
+        include ./tourism.partial.jade

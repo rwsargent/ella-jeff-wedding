@@ -3,18 +3,86 @@ console.log('compiled js!');
 var tabLoad = function (event) {
     event.preventDefault();
     var id = $(this).attr('id');
-    $.ajax({
-        url: "/tab/" + id
-    }).success(function (data) {
-        $('#main-content').html(data);
-    });
+    if(id == 'rsvp') {
+	$.ajax({
+            url: "/tab/" + id
+	}).success(function (data) {
+            $('#main-content').html(data);
+//	    dynamicMaterializeBindings();
+	});
+    }
 };
 
 $(document).ready(function () {
-    $("li.tab").click(tabLoad);
+//    $("li.tab").click(tabLoad);
+    RSVPBindings();
 });
-// bind click event on li
 
-// send id --> /tab/:id
+var dynamicMaterializeBindings = function() {
+    $('.collapsible').collapsible({
+	accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+}
 
-// response #main-content
+var RSVPBindings = function() {
+    $('input.regrets').change(function() {
+	var choice = this.id;
+	$.ajax( {
+	    url : "/rsvp/" + choice
+	}).success(function(data){
+	   $('#rsvp-anchor').html(data);
+	});
+    });
+}
+
+var guestInputChangeHandler = function(input) {
+    var inputList = document.getElementById('input-list');
+    if(!input.value) {
+	if(inputList.childNodes.length !== 1) {
+	    input.remove();
+	    inputList.childNodes[inputList.childNodes.length-1].focus();
+	}
+    }
+    if(input.hasAttribute('spawned')) {
+	return;
+    }
+    //mark this input as already spawning one.
+    input.setAttribute('spawned', '');
+    var newInputElement = document.createElement('input');
+    newInputElement.className = 'coming-name';
+    newInputElement.type = 'text';
+    newInputElement.setAttribute('oninput', 'guestInputChangeHandler(this);');
+    inputList.appendChild(newInputElement);
+}
+
+var rsvpClick = function(button) {
+    var reqObjec = {
+	names :[]
+    };
+    var inputList = document.getElementById('input-list');
+    for(var inputIdx = 0; inputIdx < inputList.childNodes.length; inputIdx++) {
+	var input = inputList.childNodes[inputIdx];
+	if(input.value) {
+	    reqObjec.names.push(input.value);
+	}
+    }
+    if(!reqObjec.names.length) {
+	return;
+    }
+    rsvpPost('rsvp', reqObjec);
+}
+
+var regretClick = function() {
+    var req = {};
+    req.message = document.getElementById('regret-message').value;
+    if(!req.message) {
+	return;
+    }
+    rsvpPost('/regrets', req);
+};
+
+var rsvpPost = function(url, request) {
+    $.post(url, request, function(data) {
+	$('#rsvp-tab').html(data);	
+    });
+}
