@@ -1,10 +1,11 @@
 {
   "name": "ella-jeff-wedding",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www & gulp"
+    "start": "node ./bin/www"
   },
+  "main" : "./bin/www",
   "dependencies": {
     "express": "~4.13.1",
     "serve-favicon": "~2.3.0",
