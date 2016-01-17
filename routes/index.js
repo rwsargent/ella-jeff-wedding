@@ -10,12 +10,13 @@ router.get('/', function(req, res, next) {
         if(req.cookies.secretpassword === 'ellassecretpassword' && req.cookies.name) {
             res.cookie('secretpassword', 'ellassecretpassword', {expires : new Date(Date.now() + 36000000), httpOnly: false});
             res.cookie('name', req.cookies.name, {expires : new Date(Date.now() + 36000000), httpOnly: false});
-            res.render('home', {name:req.cookies.name, });
+	    var apiKey = require('../tokens.json').gmapApiToken;
+	    console.log(apiKey);
+            res.render('home', {apiKey : apiKey});
             return;
         }
     }
     res.render('login', {failed : req.query.login});
-//    res.sendFile(path.join(__dirname, '/../views/login-raw.html'));
 });
 
 router.post('/authentication', function(req, res, next) {
@@ -35,7 +36,7 @@ router.get('/rsvp/:choice', function(req, res, next){
 router.get('/tab/:info', function(req, res, next)  {
     var partial = req.params.info + ".partial.jade";
     var template = fs.readFileSync('./views/'+partial, 'utf8');
-    var html = jade.render(template);
+    var html = jade.render(template, { apiKey : apiKey });
     res.send(html);
 });
 
@@ -60,9 +61,11 @@ var renderPartial = function(filename, data) {
     filename = filename + ".jade";
     var template = fs.readFileSync('./views/'+filename, 'utf8');
     var html = jade.render(template);
-  //  var jadeFn = jade.compile(template, { filename: partial, pretty: true });
-//    var renderedTemplate = jadeFn({data: 1, hello: 'world'});
-    return html
+    if(data) {
+	var jadeFn = jade.compile(template, { filename: partial, pretty: true });
+	html = jadeFn(data);
+    }
+    return html;
 }
 
 module.exports = router;

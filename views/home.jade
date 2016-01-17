@@ -3,6 +3,7 @@ extends header
 block content
   .card-panel.picture
     img.responsive-img.logo(src='/images/logo.png')
+    p #{apiKey}
   .card-panel.main.container
     .button-bar.row
       .col.s12
@@ -15,7 +16,7 @@ block content
             a(href='#registry-tab') Registry
           li.tab.col.s3#rsvp
             a(href='#rsvp-tab') RSVP
-          li.tab.col.s3#tourism
+          li.tab.col.s3.disabled#tourism
             a(href='#tourism-tab') Tourism
     #main-content
       #home-tab
