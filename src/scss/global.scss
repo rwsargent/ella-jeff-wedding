@@ -30,11 +30,7 @@
   .logo{ 
     width: 25%;
   }
-  .hotel-list {
-    float: left;
-    width:50%;
-    overflow:hidden;
-  } 
+
 }
 
 li.button-bar-item { 
@@ -54,4 +50,24 @@ li.button-bar-item {
     background-color: lighten($mint, 5%);
     @extend .z-depth-1-half;
   }
+}
+
+.map-wrapper {
+    position: relative;
+    padding-bottom: 90%;
+    
+    iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content:'';
+	width: 100%;
+	height: 100%;
+    }
+}
+
+.clear-fix {
+    clear:both;
 }

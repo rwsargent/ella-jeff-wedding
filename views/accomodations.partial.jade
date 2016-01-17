@@ -1,18 +1,20 @@
 .accom-wrapper
-  .hotel-list
-    ul.collapsible(data-collapsible='accordion')
-      li
-        .collapsible-header Hotel Name
-        .collapsible-body
-          p something something something
-      li
-        .collapsible-header Hotel Two
-        .collapsible-body
-          p something something something
-      li
-        .collapsible-header Hotel Three
-        .collapsible-body
-          p something something something
-  .map-wrapper
-    iframe(src='https://www.google.com/maps/embed/v1/place?key=#{apiKey}',width="600", height="450", frameborder="0",style="border:0")
-    img.responsive-img(src='/images/map.png')
+  .row
+    .hotel-list.col.s5
+      ul.collapsible(data-collapsible='accordion')
+        li
+          .collapsible-header Hotel Name
+          .collapsible-body
+            p something something something
+        li
+          .collapsible-header Hotel Two
+          .collapsible-body
+            p something something something
+        li
+          .collapsible-header Hotel Three
+          .collapsible-body
+            p something something something
+    .col.s7              
+      .map-wrapper
+        iframe(src='https://www.google.com/maps/embed/v1/place?key=#{apiKey}&q=Space+Needle,Seattle+WA', frameborder="0",allowfullscreen,style="border:0")
+    .clear-fix

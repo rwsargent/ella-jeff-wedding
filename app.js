@@ -5,8 +5,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var mongoose = require('mongoose');
+var connection = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/wedding';
 
+mongoose.connect(connection, function(err, success) {
+    if (err) {
+        console.log(err);
+        throw err;
+    }
+});
+
+var routes = require('./routes/index');
 var app = express();
 
 // view engine setup

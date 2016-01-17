@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path');
 var jade = require('jade');
 var fs = require('fs');
-
+var RSVP = require("./../models/rsvp.js");
 /* GET home page. */
 router.get('/', function(req, res, next) {
     if (req.cookies.secretpassword) {
@@ -17,6 +17,17 @@ router.get('/', function(req, res, next) {
         }
     }
     res.render('login', {failed : req.query.login});
+});
+
+router.get('/dashboard/rsvp', function(req, res, next) {
+    RSVP.find({}, null, {sort: {name: 1}}, function(err, rsvps) {
+	var data = { names : []};
+	for(var rsvpIdx in rsvps) {
+	    var rsvp = rsvps[rsvpIdx];
+	    data.names.push(rsvp.name);
+	}
+	res.render('dashboard-rsvp', data);
+    });
 });
 
 router.post('/authentication', function(req, res, next) {
@@ -49,11 +60,19 @@ router.post('/rsvp', function(req, res, next) {
     var names = req.body['names[]'];
     for(var nameIdx in names) {
 	var name = names[nameIdx];
-	console.log(name);
+	var rsvpObject = RSVP({
+	    name : name
+	});
+	rsvpObject.save(function(err) {
+	    if(err) {
+		res.cookie('rsvp', 'unsuccessful', {expires : new Date(2147483647000)});
+	    } else {
+		res.cookie('rsvp', 'unsuccessful', {expires : new Date(2147483647000)});
+	    }
+	    var html = renderPartial('success-rsvp');
+	    res.send(html);
+	});
     }
-    res.cookie('rsvp', 'successful', {expires : new Date(2147483647000)});
-    var html = renderPartial('success-rsvp');
-    res.send(html);
     
 });
 
