@@ -9,3 +9,12 @@ $secondary-color: #FE7E39;
 
 $mint: $primary-color;
 $orange: $secondary-color;
+
+// Overriding color defaults
+
+// tabs
+$tabs-text-color: $orange;
+$tabs-underline-color: lighten($orange, 20%);
+
+// radio button
+$radio-fill-color: $orange;

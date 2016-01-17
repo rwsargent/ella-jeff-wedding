@@ -1,4 +1,11 @@
-p Ella and Jeff's Wedding!
-p July 13th, 2016
-p Stanley Park
-p They're getting married, yo.
+.invitation-wrapper
+	img.title.responsive-img(src="images/jeffAndElla.png")
+	p.subtitle They're getting married, yo
+	img.florish.responsive-img(src="images/divider.png")
+	p.date August 13<sup>th</sup>, 2015 at 4pm
+	p.address 610 Pipeline Rd, Vancover, BC V6G 1Z4
+	p.park Stanley Park
+
+.invitation-map
+	.map-wrapper
+		iframe(src='https://www.google.com/maps/embed/v1/place?key=#{apiKey}&q=Space+Needle,Seattle+WA', frameborder="0",allowfullscreen,style="border:0")

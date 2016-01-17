@@ -13,8 +13,8 @@
 }
 
 .failed {
-    text-align: center;
-    color: red;
+  text-align: center;
+  color: red;
 }
 
 .content {
@@ -28,16 +28,16 @@
   }
 
   .logo{ 
-    width: 25%;
+    width: 12.5%;
   }
 
 }
 
 li.button-bar-item { 
-    display : block;
-    float:left;
-    width : 20%;
-    text-align : center;
+  display : block;
+  float:left;
+  width : 20%;
+  text-align : center;
 }
 
 // Example of extending materialize classes
@@ -53,21 +53,83 @@ li.button-bar-item {
 }
 
 .map-wrapper {
-    position: relative;
-    padding-bottom: 90%;
-    
-    iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	content:'';
-	width: 100%;
-	height: 100%;
-    }
+  position: relative;
+  padding-bottom: 90%;
+
+  iframe {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   content:'';
+   width: 100%;
+   height: 100%;
+ }
 }
 
 .clear-fix {
-    clear:both;
+  clear:both;
 }
+
+
+// Home page tab
+//---
+.invitation-wrapper {
+  font-family: 'Pinyon Script', cursive;
+  text-align: center;
+
+  padding: 60px 0;
+
+  margin: auto;
+
+  p {
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .title {
+    margin-bottom: 15px;
+  }
+
+  .subtitle {}
+  .date {}
+
+  .address {
+    font-size: 24px;
+  }
+
+  .florish {
+    margin: 30px 0;
+  }
+}
+
+.invitation-wrapper, .invitation-map {
+  max-width: 550px;
+  margin: auto;
+}
+
+
+// .tabs  {
+//   .indicator {
+//     background-color: lighten($orange, 15%);
+//   }
+
+//   .tab a {
+//   color: $orange;
+
+//     &:hover, &:focus {
+//       color: lighten($orange, 15%);
+//     }
+//   }
+// }
+
+html {
+  background-color: lighten($mint, 5%);
+}
+
+// input[type=radio]:checked+label:after {
+//  border-color: $orange;
+//  background-color: $orange;
+// }
