@@ -1,4 +1,6 @@
 extends header
 block content
-  each name in names
-    p #{name}
+  .card.container
+    ul.collection
+      each name in names
+        li.collection-item #{name}

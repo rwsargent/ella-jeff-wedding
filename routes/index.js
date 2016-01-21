@@ -7,9 +7,8 @@ var RSVP = require("./../models/rsvp.js");
 /* GET home page. */
 router.get('/', function(req, res, next) {
     if (req.cookies.secretpassword) {
-        if(req.cookies.secretpassword === 'ellassecretpassword' && req.cookies.name) {
+        if(req.cookies.secretpassword === 'ellassecretpassword') {
             res.cookie('secretpassword', 'ellassecretpassword', {expires : new Date(Date.now() + 36000000), httpOnly: false});
-            res.cookie('name', req.cookies.name, {expires : new Date(Date.now() + 36000000), httpOnly: false});
 	    var apiKey = require('../tokens.json').gmapApiToken;
 	    console.log(apiKey);
             res.render('home', {apiKey : apiKey});
@@ -33,7 +32,6 @@ router.get('/dashboard/rsvp', function(req, res, next) {
 router.post('/authentication', function(req, res, next) {
     if (req.body.password === "ella") {
         res.cookie('secretpassword', 'ellassecretpassword', {maxAge: 9000});
-        res.cookie('name', req.body.name, {maxAge: 9000});
         res.redirect('/');
     } else {
         res.redirect('/?login=false');
@@ -58,22 +56,17 @@ router.post('/regrets', function(req, res, next) {
 
 router.post('/rsvp', function(req, res, next) {
     var names = req.body['names[]'];
+    var nameLength = names.length;
+    var valid = true;
     for(var nameIdx in names) {
 	var name = names[nameIdx];
 	var rsvpObject = RSVP({
 	    name : name
 	});
-	rsvpObject.save(function(err) {
-	    if(err) {
-		res.cookie('rsvp', 'unsuccessful', {expires : new Date(2147483647000)});
-	    } else {
-		res.cookie('rsvp', 'unsuccessful', {expires : new Date(2147483647000)});
-	    }
-	    var html = renderPartial('success-rsvp');
-	    res.send(html);
-	});
+	rsvpObject.save();
     }
-    
+    var html = renderPartial('success-rsvp');
+    res.send(html);
 });
 
 var renderPartial = function(filename, data) {

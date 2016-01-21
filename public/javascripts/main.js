@@ -1,5 +1,3 @@
-console.log('compiled js!');
-
 var tabLoad = function (event) {
     event.preventDefault();
     var id = $(this).attr('id');
@@ -52,6 +50,7 @@ var guestInputChangeHandler = function(input) {
     newInputElement.className = 'coming-name';
     newInputElement.type = 'text';
     newInputElement.setAttribute('oninput', 'guestInputChangeHandler(this);');
+    newInputElement.setAttribute('placeholder', 'First Last');
     inputList.appendChild(newInputElement);
 }
 
