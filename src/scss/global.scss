@@ -23,6 +23,7 @@
   }
   .card-panel.main.container {
       margin-bottom: 5%;
+      margin-top: 4%
   }
   .card-panel.picture {
     margin: 45px 0;
@@ -129,7 +130,7 @@ li.button-bar-item {
 // }
 
 html {
-  background-color: lighten($mint, 5%);
+  background-color: lighten($mint, 12%);
 }
 
 // input[type=radio]:checked+label:after {

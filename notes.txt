@@ -1,17 +1,18 @@
-take color down.
+x take color down.
 
--Stanely Park Pavilion, then address
+x -Stanely Park Pavilion, then address
 
-2015 -> 2016
+x 2015 -> 2016
 
-Fine -> We're so sorry you can't make it. If your plans change, please let us know!
+x Fine -> We're so sorry you can't make it. If your plans change, please let us know!
 
-They're getting married, yo -> are hoping you will join them on their special day.
+x They're getting married, yo -> are hoping you will join them on their special day.
 
-remove banner
+x remove banner
 
-picture
+x picture
 
 Report who has declined.
 
 RSVP deadline: May First, 2016
+*ella

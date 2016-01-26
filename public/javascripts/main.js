@@ -56,28 +56,34 @@ var guestInputChangeHandler = function(input) {
 
 var rsvpClick = function(button) {
     var reqObjec = {
-	names :[]
+	names : getDynamicInputs()
     };
-    var inputList = document.getElementById('input-list');
-    for(var inputIdx = 0; inputIdx < inputList.childNodes.length; inputIdx++) {
-	var input = inputList.childNodes[inputIdx];
-	if(input.value) {
-	    reqObjec.names.push(input.value);
-	}
-    }
     if(!reqObjec.names.length) {
 	return;
     }
-    rsvpPost('rsvp', reqObjec);
+    rsvpPost('/rsvp', reqObjec);
 }
 
 var regretClick = function() {
     var req = {};
     req.message = document.getElementById('regret-message').value;
-    if(!req.message) {
+    req.names = getDynamicInputs();
+    if(!req.message || !req.names.length) {
 	return;
     }
     rsvpPost('/regrets', req);
+};
+
+var getDynamicInputs = function(inputListId) {
+    var inputs = []
+    var inputList = document.getElementById('input-list');
+    for(var inputIdx = 0; inputIdx < inputList.childNodes.length; inputIdx++) {
+	var input = inputList.childNodes[inputIdx];
+	if(input.value) {
+	    inputs.push(input.value);
+	}
+    }
+    return inputs;
 };
 
 var rsvpPost = function(url, request) {

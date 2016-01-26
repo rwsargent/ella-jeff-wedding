@@ -1,3 +1,6 @@
-p We're sorry you can't make it! Feel free to send us a little message below, and we hope to see you soon!
-input.regret-message#regret-message(type='text')
+p We're sorry you can't make it! Please let us know who all can't make it. If you have both regrets as well as wanting to rsvp for someone, please select the other option above. We'll figure out the rest.
+input#regret-message(type='text', placeholder='Message')
+.divider
+#input-list
+  input.dynamic-input(type='text', oninput='guestInputChangeHandler(this)', placeholder='First Last')
 button.rsvp-submit-button.btn-mint.regrets-btn.waves-effect.waves-light(onclick='regretClick()') Send

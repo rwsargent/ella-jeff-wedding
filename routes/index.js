@@ -4,6 +4,7 @@ var path = require('path');
 var jade = require('jade');
 var fs = require('fs');
 var RSVP = require("./../models/rsvp.js");
+var Regret = require('./../models/regrets.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     if (req.cookies.secretpassword) {
@@ -50,12 +51,23 @@ router.get('/tab/:info', function(req, res, next)  {
 });
 
 router.post('/regrets', function(req, res, next) {
-    //write message
-    res.send('<p>Fine.</p>');
+    var names = req.body['names[]'];
+    var regret = Regret();
+    for(var nameIdx in names) {
+	regret.names.push(names[nameIdx]);
+    }
+    regret.message = req.body.message;
+    regret.save(function(err) {
+	if(!err) {
+	    res.send("<p>We're so sorry you can't make it. If your plans change, please let us know!</p>");
+	} else {
+	    res.send("<p> Woops! Something went wrong, and I couldn't save that information. Try again in a bit. If you keep seeing this message, contact </p>");
+	}
+    });
 });
 
 router.post('/rsvp', function(req, res, next) {
-    var names = req.body['names[]'];
+    var names = req.body['names'];
     var nameLength = names.length;
     var valid = true;
     for(var nameIdx in names) {
