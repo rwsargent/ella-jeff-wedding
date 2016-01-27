@@ -56,25 +56,40 @@ var guestInputChangeHandler = function(input) {
 
 var rsvpClick = function(button) {
     var reqObjec = {
-	names : getDynamicInputs()
+	names : getVaulesFromDynamicInputs()
     };
+    var title = document.getElementById('title-input'),
+        artist = document.getElementById('artist-input');
+    if(!checkValid(title) | !checkValid(artist)) { // check valid as the side effect of marking as invalid
+	return;
+    }
+
     if(!reqObjec.names.length) {
+	// maybe mark something invalid
 	return;
     }
     rsvpPost('/rsvp', reqObjec);
 }
 
+var checkValid = function(input) {
+    if(!input.value) {
+	input.classList.add('invalid');
+	return false;
+    }
+    return true;
+}
+
 var regretClick = function() {
     var req = {};
     req.message = document.getElementById('regret-message').value;
-    req.names = getDynamicInputs();
-    if(!req.message || !req.names.length) {
+    req.names = getVaulesFromDynamicInputs();
+    if(!req.names.length) {
 	return;
     }
     rsvpPost('/regrets', req);
 };
 
-var getDynamicInputs = function(inputListId) {
+var getVaulesFromDynamicInputs = function(inputListId) {
     var inputs = []
     var inputList = document.getElementById('input-list');
     for(var inputIdx = 0; inputIdx < inputList.childNodes.length; inputIdx++) {
