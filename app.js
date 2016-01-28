@@ -11,7 +11,6 @@ var connection = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/we
 mongoose.connect(connection, function(err, success) {
     if (err) {
         console.log(err);
-        throw err;
     }
 });
 
