@@ -1,6 +1,3 @@
-extends header
-block content
-  .card.container
-    ul.collection
-      each name in names
-        li.collection-item #{name}
+ul.collection
+  each name in rsvp.names
+    li.collection-item #{name}

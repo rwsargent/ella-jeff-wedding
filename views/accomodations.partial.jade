@@ -1,29 +1,21 @@
 .accom-wrapper
+  p We have a group block booking with the Best Western Capilano Inn & Suites
+  p The Group # is 617, but either Hunter or Sargent should get you to the correct booking.  Please book prior to July 11th because at that time, any unused rooms will be release for public booking
   .row
-    .hotel-list.col.s5
-      ul.collapsible(data-collapsible='accordion')
-        li
-          .collapsible-header Best Western Capilano
-            i.material-icons room
-          .collapsible-body
-            .row
-              .col.s3
-                p
-                  a(href='http://www.bestwesterncapilano.com/', target='_blank') Website
-              .col.s9
-                p Mention Hunter/Sargent in the booking to recieve a group rate.
-        li
-          .collapsible-header Vancouver Comfort
-            i.material-icons room
-          .collapsible-body
-            .row
-              .col.s3
-                p
-                  a(href='http://www.vancouvercomfort.com', target='_blank') Website
-              .col.s9
-                p Mention Hunter/Sargent in the booking to recieve a group rate.
+    .col.s5
+      .card.hover.pad-bottom
+        .card-image
+          a(href='http://www.bestwesterncapilano.com/', target='_blank')
+            img.center-image.responsive-img(src='/images/best-western-before-2015.png', target='_blank')
+      .card.hover.pad-bottom
+        .card-image
+          a(href='http://www.vancouvercomfort.com/', target='_blank')
+            img.center-image.responsive-img(src='/images/comfort-inn-vector-logo-400x400.png')
+      .card-panel.mint
+        span Please feel free to find accommodation in Vancouver Proper as well, we've provided a map marking the two hotels, our house, and the venue so you can co-ordinate accordingly
     .col.s7              
       .map-wrapper
-        iframe(src='https://www.google.com/maps/d/embed?mid=z-pR172Ygogc.kstDPevReOO0',frameborder='0',allowfullscreen,style='border:0')
-        //https://www.google.com/maps/embed/v1/place?key=#{apiKey}&mid=z-pR172Ygogc.kstDPevReOO0
+        iframe(src="https://www.google.com/maps/d/u/0/embed?mid=z-pR172Ygogc.kstDPevReOO0&z=12",width="640",height="480")
     .clear-fix
+
+    

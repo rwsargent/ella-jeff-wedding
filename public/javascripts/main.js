@@ -13,7 +13,7 @@ var tabLoad = function (event) {
 
 $(document).ready(function () {
 //    $("li.tab").click(tabLoad);
-    RSVPBindings();
+//    RSVPBindings();
 });
 
 var dynamicMaterializeBindings = function() {
@@ -22,16 +22,23 @@ var dynamicMaterializeBindings = function() {
     });
 }
 
-var RSVPBindings = function() {
-    $('input.regrets').change(function() {
-	var choice = this.id;
+var RSVPBindings = function(button) {
+    var choice = button.id;
+    var other = choice === 'coming' ? 'regrets' : 'coming';
+    if(!button.classList.contains('selected')) {
 	$.ajax( {
 	    url : "/rsvp/" + choice
 	}).success(function(data){
-	   $('#rsvp-anchor').html(data);
+	    $('#rsvp-anchor').html(data);
+	    button.classList.add('selected');
+	    document.getElementById(other).classList.remove('selected');
 	});
-    });
+    }
 }
+
+var getOtherElement = function(choice) {
+    
+};
 
 var guestInputChangeHandler = function(input) {
     var inputList = document.getElementById('input-list');
@@ -68,6 +75,8 @@ var rsvpClick = function(button) {
 	// maybe mark something invalid
 	return;
     }
+    reqObjec.artist = artist.value;
+    reqObjec.title = title.value;
     rsvpPost('/rsvp', reqObjec);
 }
 

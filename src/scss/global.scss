@@ -17,9 +17,27 @@
   color: red;
 }
 
+.card.small.smaller {
+   height: 208px;
+   margin-top: 10px;
+}
+
 .content {
+  .card.pad-bottom {
+     margin-bottom : 10px;
+  }
+  .card.hover {
+     &:hover {
+       @extend .z-depth-1-half;
+     }
+  }
   div {
     margin: auto;
+  }
+  img.center-image {
+     display: block;
+     margin:auto;
+     width:45%;
   }
   .card-panel.main.container {
       margin-bottom: 5%;
@@ -40,6 +58,10 @@
     margin-left: 19%;
   }
 
+  .row.rsvp.radio {
+     margin-top :10px;
+  }
+
 }
 
 li.button-bar-item { 
@@ -49,13 +71,14 @@ li.button-bar-item {
   text-align : center;
 }
 
+
 // Example of extending materialize classes
 .btn-mint {
 	@extend .btn;
 
   background-color: $mint;
 
-  &:hover {
+  &:hover, {
     background-color: lighten($mint, 5%);
     @extend .z-depth-1-half;
   }

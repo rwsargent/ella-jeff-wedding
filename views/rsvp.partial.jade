@@ -1,9 +1,7 @@
-.radio-wrapper
-  .regret-input-child
-    input.regrets.orange(type='radio', name='rsvp-radio', id='regrets')
-    label(for='regrets') I'm sorry, I can't make it!
-  .regret-input-child
-    input.regrets(type='radio', name='rsvp-radio', id='coming')
-    label(for='coming') I can't wait to see you two!
-  #rsvp-anchor
+.row.rsvp.radio
+  .col.s2.push-s2
+    button#coming.btn-mint.waves-effect.waves-light(onclick='RSVPBindings(this)') Coming!
+  .col.s2.push-s6
+    button#regrets.btn-mint.waves-effect.waves-light(onclick='RSVPBindings(this)') Regrets!
+#rsvp-anchor
 

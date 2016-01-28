@@ -1,0 +1,21 @@
+extends header
+
+block content
+  .card-panel.main.container
+    a.btn-mint.waves-effect.waves-light(href='/dashboard/get-spreadsheet') For Excel
+    .button-bar.row
+      .col.s12
+        ul.button-bar-list.tabs
+          li.tab.col.s4#rsvp-dash
+            a(href='#rsvp-dash-tab') RSVPs
+          li.tab.col.s4#regrets-dash
+            a(href='#regrets-dash-tab') Regrets
+          li.tab.col.s4#requests-dash
+            a(href='#requests-dash-tab') Requests
+    #main-content
+      #rsvp-dash-tab
+        include ./dashboard-rsvp.jade
+      #regrets-dash-tab
+        include ./dashboard-regrets.jade
+      #requests-dash-tab
+        include ./dashboard-requests.jade
