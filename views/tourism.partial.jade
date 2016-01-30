@@ -6,11 +6,14 @@
         li
           .collapsible-header= tour.title
           .collapsible-body
-            .row
+            .row.pic-wrapper
               .col.s4
-                .hover.force-circle.card
+                .hover.card.margin-vertical(id='#{tour.cssId}')
                   .card-image.tourism-card
                     a(href='#{tour.link}', target='_blank')
-                      img.force-circle.responsive-img.valign(src='#{tour.img}')
+                      img.responsive-img.tour-img(src='#{tour.img}')
               .col.s6
                 p= tour.blurb
+                if tour.jeff
+                  a.to-the-bot(href='#{tour.img}', target='_blank') See the big picture
+              

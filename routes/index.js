@@ -42,7 +42,7 @@ router.get('/dashboard/get-spreadsheet', function(req, res, next) {
 		var tsv = header, rowNum = 0, building = true;
 		var delim = "\t";
 		while(building) {
-		    var row = "", keepGoing = false;;
+		    var row = "", keepGoing = false;
 		    if(rsvpList[rowNum]){
 			row += rsvpList[rowNum];
 			keepGoing = true;

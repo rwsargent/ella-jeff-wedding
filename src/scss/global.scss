@@ -22,14 +22,30 @@
    margin-top: 10px;
 }
 
+#aqua {
+  width:75%;
+}
+
 .content {
+  .force-circle {
+     border-radius : 50%;	     
+  }
+
+  .row.pic-wrapper {
+     position:relative;
+  }
+  a.to-the-bot {
+     position:absolute;
+     bottom: 5px;
+  }
   .card.pad-bottom {
      margin-bottom : 10px;
   }
-  .card {
-    .force-circle {
-       border-radius: 50%;
-    }
+  .card.margin-vertical {
+     margin: 10px;
+  }
+  img.force-circle {
+     border-radius : 50%;
   }
   .card.hover {
      &:hover {
