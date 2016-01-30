@@ -11,9 +11,8 @@ router.get('/', function(req, res, next) {
     if (req.cookies.secretpassword) {
         if(req.cookies.secretpassword === 'congratsYouKnowHowToLookAtCookies') {
             res.cookie('secretpassword', 'congratsYouKnowHowToLookAtCookies', {expires : new Date(Date.now() + 36000000), httpOnly: false});
-	    var apiKey = require('../tokens.json').gmapApiToken;
-	    console.log(apiKey);
-            res.render('home', {apiKey : apiKey});
+	    var tourisms = require('../scripts/tourism.js')
+            res.render('home', {tourism : tourisms});
             return;
         }
     }
@@ -169,7 +168,7 @@ router.post('/rsvp', function(req, res, next) {
     });
     reqObject.save();
     rsvpObject.save(function(err) {
-	var html = renderPartial('success-rsvp');
+	var tml = renderPartial('success-rsvp');
 	if(err) {
 	    html = renderPartial('save-error');
 	}

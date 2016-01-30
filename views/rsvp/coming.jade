@@ -1,10 +1,10 @@
-p We're so happy you can make it! Please list below everyone who can attend the wedding, and include your favorite song!
-p Please RSVP by no later than May 1<sup>st</sup>, 2016.
+p We're so happy you can make it! Please list below everyone who can attend the wedding, and include your favorite song to dance to!
+p Please RSVP by no later than May 1<sup>st</sup>.
+#input-list
+  input.dynamic-input(type='text', oninput='guestInputChangeHandler(this)', placeholder='First Last')
 .row
   .col.s6
     input#title-input.validate(type='text', placeholder='Title')
   .col.s6
     input#artist-input.validate(type='text', placeholder='Artist')
-#input-list
-  input.dynamic-input(type='text', oninput='guestInputChangeHandler(this)', placeholder='First Last')
 button.rsvp-submit-button.btn-mint.coming-btn.waves-effect.waves-light(onclick='rsvpClick(this)') RSVP
