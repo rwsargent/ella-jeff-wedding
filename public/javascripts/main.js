@@ -57,7 +57,7 @@ var guestInputChangeHandler = function(input) {
     newInputElement.className = 'coming-name';
     newInputElement.type = 'text';
     newInputElement.setAttribute('oninput', 'guestInputChangeHandler(this);');
-    newInputElement.setAttribute('placeholder', 'First Last');
+    newInputElement.setAttribute('placeholder', 'Full Name');
     inputList.appendChild(newInputElement);
 }
 

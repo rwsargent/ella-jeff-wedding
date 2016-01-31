@@ -16,7 +16,7 @@ module.exports = [
 	title: 'Museum of Anthropology',
 	link : 'http://moa.ubc.ca',
 	img : '/images/MOA_Profile_Google_500.png',
-	blurb : "The Museum of Anthropology at the University of British Columbia campus in Vancouver, British Columbia, Canada is renowned for its displays of world arts and cultures, in particular works by First Nation peoples of the Pacific Northwest. The magnificent entery-way doors are from Ella's ancestral home.",
+	blurb : "The Museum of Anthropology at the University of British Columbia campus in Vancouver, British Columbia, Canada is renowned for its displays of world arts and cultures, in particular works by First Nation peoples of the Pacific Northwest. The magnificent entryway doors are from Ella's ancestral home.",
 	cssId : 'aqua'
     }, {
 	title: 'Seawall in Vancouver',

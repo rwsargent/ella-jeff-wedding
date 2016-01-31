@@ -168,7 +168,7 @@ router.post('/rsvp', function(req, res, next) {
     });
     reqObject.save();
     rsvpObject.save(function(err) {
-	var tml = renderPartial('success-rsvp');
+	var html = renderPartial('success-rsvp');
 	if(err) {
 	    html = renderPartial('save-error');
 	}
